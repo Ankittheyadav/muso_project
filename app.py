@@ -5,17 +5,17 @@ import mysql.connector
 import os
 
 app = Flask(__name__, template_folder=os.path.abspath("templates"), static_folder=os.path.abspath("static"))
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # ✅ Fix: Create a proper function to return a fresh MySQL connection
 def get_db_connection():
     try:
         db = mysql.connector.connect(
-            host="bohznex7mygi00frt0oz-mysql.services.clever-cloud.com",
-            user="uov0biyro1vaia0p",
-            password="IFTcoV2uLVNQzYOaVjHL",
-            database="bohznex7mygi00frt0oz",
-            autocommit=True  # ✅ Auto-commit to prevent transaction issues
+            host=os.getenv("DB_HOST", "bohznex7mygi00frt0oz-mysql.services.clever-cloud.com"),
+            user=os.getenv("DB_USER", "uov0biyro1vaia0p"),
+            password=os.getenv("DB_PASS", "IFTcoV2uLVNQzYOaVjHL"),
+            database=os.getenv("DB_NAME", "bohznex7mygi00frt0oz"),
+            autocommit=True
         )
         cursor = db.cursor()
         return db, cursor
@@ -188,4 +188,5 @@ def get_leaderboard():
     })
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    PORT = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=PORT, debug=True)
