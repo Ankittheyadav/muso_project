@@ -1,0 +1,15 @@
+<nav class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="{{ url_for('home') }}" class="flex items-center space-x-2">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/musologo%201-Ic8X291O3FTMMxdlWlMbeb39YTadmg.png" alt="MuSo Logo" class="h-16 w-auto">
+        </a>
+        <div class="flex items-center space-x-4">
+            <a href="{{ url_for('host_page') }}" class="rounded-full bg-red-500 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-red-600">
+                Host View
+            </a>
+            <a href="{{ url_for('user_page') }}" class="rounded-full border-2 border-red-500 px-6 py-2 text-sm font-medium text-red-500 transition-colors hover:bg-red-50">
+                User View
+            </a>
+        </div>
+    </div>
+</nav>

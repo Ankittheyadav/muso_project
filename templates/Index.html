@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuSo - Museum of Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="min-h-screen bg-gradient-to-b from-white to-red-50">
+    {% include 'navbar.html' %}
+    <main class="container mx-auto px-4 py-12">
+        <div class="relative">
+            <div class="absolute -left-4 top-0 h-64 w-64 rounded-full bg-red-100 opacity-50 blur-3xl"></div>
+            <div class="absolute -right-4 bottom-0 h-64 w-64 rounded-full bg-red-100 opacity-50 blur-3xl"></div>
+            
+            <div class="relative z-10 mx-auto max-w-3xl text-center">
+                <h1 class="mb-6 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                    Welcome to <span class="text-red-500">Museum of Solutions</span>
+                </h1>
+                <p class="mb-12 text-lg text-gray-600">
+                    Join our interactive Q&A platform where curiosity meets knowledge. Ask questions, share answers, and be part of our growing community of learners.
+                </p>
+                <div class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0">
+                    <a href="{{ url_for('user_page') }}" class="group flex items-center space-x-2 rounded-full bg-red-500 px-8 py-3 text-white transition-all hover:bg-red-600">
+                        <span class="icon">&#9998;</span>
+                        <span>Ask a Question</span>
+                    </a>
+                    <a href="{{ url_for('host_page') }}" class="group flex items-center space-x-2 rounded-full border-2 border-red-500 px-8 py-3 text-red-500 transition-all hover:bg-red-50">
+                        <span class="icon">&#128065;</span>
+                        <span>View Questions</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

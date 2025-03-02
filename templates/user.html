@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User View - MuSo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="min-h-screen bg-gradient-to-b from-white to-red-50">
+    {% include 'navbar.html' %}
+    <div class="container mx-auto px-4 py-8">
+        <h1 id="page-title" class="mb-8 text-center text-4xl font-bold text-gray-900">Choose an Action</h1>
+        <div id="mode-selection" class="mx-auto max-w-2xl">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <a href="{{ url_for('ask_question_form') }}" class="group flex flex-col items-center rounded-3xl bg-white p-8 text-center shadow-lg transition-all hover:shadow-xl">
+                    <span class="icon mb-4 text-4xl text-red-500">&#9998;</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Ask a Question</h3>
+                    <p class="mt-2 text-gray-600">Share your curiosity with others</p>
+                </a>                
+                <a href="{{ url_for('answer_question_form') }}" class="group flex flex-col items-center rounded-3xl bg-white p-8 text-center shadow-lg transition-all hover:shadow-xl">
+                    <span class="icon mb-4 text-4xl text-red-500">&#128172;</span>
+                    <h3 class="text-xl font-semibold text-gray-900">Answer a Question</h3>
+                    <p class="mt-2 text-gray-600">Help others by sharing your knowledge</p>
+                </a>
+            </div>
+        </div>
+        <div id="question-form" class="mx-auto max-w-xl hidden">
+            <!-- Question form will be dynamically inserted here -->
+        </div>
+        <div id="answer-form" class="mx-auto max-w-xl hidden">
+            <!-- Answer form will be dynamically inserted here -->
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='user.js') }}"></script>
+</body>
+</html>
