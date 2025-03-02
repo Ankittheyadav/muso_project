@@ -2,7 +2,9 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for
 from flask_cors import CORS
 import mysql.connector
 
-app = Flask(__name__, template_folder="templates", static_folder="static")
+import os
+
+app = Flask(__name__, template_folder=os.path.abspath("templates"), static_folder=os.path.abspath("static"))
 CORS(app)
 
 # ✅ Fix: Create a proper function to return a fresh MySQL connection
