@@ -11,11 +11,11 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 def get_db_connection():
     try:
         db = mysql.connector.connect(
-            host=os.getenv("DB_HOST", "bohznex7mygi00frt0oz-mysql.services.clever-cloud.com"),
-            user=os.getenv("DB_USER", "uov0biyro1vaia0p"),
-            password=os.getenv("DB_PASS", "IFTcoV2uLVNQzYOaVjHL"),
-            database=os.getenv("DB_NAME", "bohznex7mygi00frt0oz"),
-            autocommit=True
+            host="bohznex7mygi00frt0oz-mysql.services.clever-cloud.com",
+            user="uov0biyro1vaia0p",
+            password="IFTcoV2uLVNQzYOaVjHL",
+            database="bohznex7mygi00frt0oz",
+            autocommit=True  # ✅ Auto-commit to prevent transaction issues
         )
         cursor = db.cursor()
         return db, cursor
