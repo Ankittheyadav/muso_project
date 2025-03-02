@@ -11,10 +11,10 @@ CORS(app)
 def get_db_connection():
     try:
         db = mysql.connector.connect(
-            host="192.168.0.113",
-            user="root",
-            password="ankit",
-            database="muso_db",
+            host="bohznex7mygi00frt0oz-mysql.services.clever-cloud.com",
+            user="uov0biyro1vaia0p",
+            password="IFTcoV2uLVNQzYOaVjHL",
+            database="bohznex7mygi00frt0oz",
             autocommit=True  # ✅ Auto-commit to prevent transaction issues
         )
         cursor = db.cursor()
